@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const ServicesBento = () => {
   const { t } = useTranslation();
+  const [expandedCard, setExpandedCard] = useState(null);
 
   const services = [
     {
@@ -12,6 +14,12 @@ export const ServicesBento = () => {
         { labelKey: 'services.metrics.cleaning_frequency', label: t('services.metrics.cleaning_frequency'), value: 85, text: t('pricing.frequency.1x_week') },
         { labelKey: 'services.metrics.quality_index', label: t('services.metrics.quality_index'), value: 95, text: t('services.metrics.excellent') },
       ],
+      details: [
+        t('services.cleaning.detail1', 'Pulizia approfondita prima del tuo arrivo'),
+        t('services.cleaning.detail2', 'Cambio biancheria e asciugamani'),
+        t('services.cleaning.detail3', 'Pulizia periodica durante la tua assenza'),
+        t('services.cleaning.detail4', 'Utilizzo prodotti eco-friendly'),
+      ],
       wide: true
     },
     {
@@ -21,6 +29,12 @@ export const ServicesBento = () => {
       metrics: [
         { labelKey: 'services.metrics.availability', label: t('services.metrics.availability'), value: 100, text: '24/7' },
         { labelKey: 'services.metrics.delivery_time', label: t('services.metrics.delivery_time'), value: 90, text: '<2h' },
+      ],
+      details: [
+        t('services.shopping.detail1', 'Spesa di benvenuto pronta al tuo arrivo'),
+        t('services.shopping.detail2', 'Acquisto prodotti locali e tipici'),
+        t('services.shopping.detail3', 'Consegna in frigo entro 2 ore'),
+        t('services.shopping.detail4', 'Gestione liste personalizzate'),
       ]
     },
     {
@@ -30,6 +44,12 @@ export const ServicesBento = () => {
       metrics: [
         { labelKey: 'services.metrics.monitoring', label: t('services.metrics.monitoring'), value: 100, text: '24/7' },
         { labelKey: 'services.metrics.reaction_time', label: t('services.metrics.reaction_time'), value: 98, text: '<15min' },
+      ],
+      details: [
+        t('services.control.detail1', 'Ispezioni periodiche programmate'),
+        t('services.control.detail2', 'Controllo riscaldamento/climatizzazione'),
+        t('services.control.detail3', 'Verifica stato generale proprietà'),
+        t('services.control.detail4', 'Report fotografico dettagliato'),
       ]
     }
   ];
@@ -46,7 +66,7 @@ export const ServicesBento = () => {
           {services.map((service) => (
             <div 
               key={service.id}
-              className={`glass-card ${service.wide ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              className={`glass-card ${service.wide ? 'md:col-span-2 lg:col-span-1' : ''} ${expandedCard === service.id ? 'ring-2 ring-cyan-500/50' : ''}`}
             >
               {/* Header */}
               <div className="flex items-center gap-4 mb-6">
@@ -96,9 +116,29 @@ export const ServicesBento = () => {
                 </svg>
               </div>
 
+              {/* Expandable Details */}
+              {expandedCard === service.id && (
+                <div className="mt-4 pt-4 border-t border-white/10 animate-fadeIn">
+                  <ul className="space-y-2">
+                    {service.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-slate-300">
+                        <i className="fas fa-check text-cyan-400 mt-0.5"></i>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* CTA Button */}
-              <button className="w-full mt-6 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all duration-300 text-sm font-medium">
-                {t('services.learn_more', 'Details ansehen')} <i className="fas fa-arrow-right ml-2"></i>
+              <button 
+                onClick={() => setExpandedCard(expandedCard === service.id ? null : service.id)}
+                className="w-full mt-6 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all duration-300 text-sm font-medium cursor-pointer"
+              >
+                {expandedCard === service.id 
+                  ? <>{t('services.show_less', 'Meno dettagli')} <i className="fas fa-chevron-up ml-2"></i></>
+                  : <>{t('services.learn_more', 'Details ansehen')} <i className="fas fa-chevron-down ml-2"></i></>
+                }
               </button>
             </div>
           ))}

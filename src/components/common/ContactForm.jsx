@@ -7,10 +7,37 @@ export const ContactForm = () => {
   const { t, i18n } = useTranslation();
   const { createLead, loading, error, success, resetState } = useLeads();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState(null);
 
   useEffect(() => {
     setIsLoaded(true);
-  }, []);
+    // Read selected package from sessionStorage (set by Pricing buttons)
+    const pkg = sessionStorage.getItem('selectedPackage');
+    if (pkg) {
+      setSelectedPackage(pkg);
+    }
+
+    // Listen for storage changes (when user selects different package from Pricing)
+    const handleStorageChange = () => {
+      const newPkg = sessionStorage.getItem('selectedPackage');
+      setSelectedPackage(newPkg);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also check periodically for same-tab changes (storage event doesn't fire in same tab)
+    const interval = setInterval(() => {
+      const currentPkg = sessionStorage.getItem('selectedPackage');
+      if (currentPkg !== selectedPackage) {
+        setSelectedPackage(currentPkg);
+      }
+    }, 500);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [selectedPackage]);
 
   const [formData, setFormData] = useState({
     first_name: '',
@@ -44,10 +71,16 @@ export const ContactForm = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const result = await createLead({ ...formData, preferred_language: i18n.language });
+    const result = await createLead({ 
+      ...formData, 
+      preferred_language: i18n.language,
+      selected_package: selectedPackage 
+    });
     if (result.success) {
       setFormData({ first_name: '', last_name: '', email: '', phone: '', message: '' });
       setErrors({});
+      sessionStorage.removeItem('selectedPackage'); // Clear after successful submission
+      setSelectedPackage(null);
     }
   };
 
@@ -88,6 +121,29 @@ export const ContactForm = () => {
         {error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
             {error}
+          </div>
+        )}
+
+        {/* Selected Package Banner */}
+        {selectedPackage && (
+          <div className="mb-6 p-4 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 border border-cyan-400/30 rounded-lg">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-cyan-300 mb-1">{t('contact.selected_package', 'Pacchetto selezionato')}</p>
+                <p className="text-lg font-bold text-white">{selectedPackage}</p>
+              </div>
+              <button 
+                type="button"
+                onClick={() => {
+                  sessionStorage.removeItem('selectedPackage');
+                  setSelectedPackage(null);
+                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-cyan-300 hover:text-white text-sm underline cursor-pointer"
+              >
+                {t('contact.change_package', 'Cambia')}
+              </button>
+            </div>
           </div>
         )}
 

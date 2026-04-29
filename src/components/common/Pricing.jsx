@@ -316,7 +316,11 @@ const PricingCard = ({ pkg, index, hoveredCard, setHoveredCard }) => {
         </motion.div>
 
         <motion.button 
-          className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-300 mt-auto ${
+          onClick={() => {
+            sessionStorage.setItem('selectedPackage', pkg.name);
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-300 mt-auto cursor-pointer ${
             pkg.popular 
               ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg hover:shadow-cyan-500/30' 
               : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'

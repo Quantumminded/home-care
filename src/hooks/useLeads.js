@@ -22,6 +22,7 @@ export const useLeads = () => {
         phone: leadData.phone || 'Non specificato',
         message: leadData.message,
         language: leadData.preferred_language || 'it',
+        package: leadData.selected_package || 'Nessuno',
         subject: 'Nuovo contatto da Luino Home Care'
       };
 

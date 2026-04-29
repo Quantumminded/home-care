@@ -43,6 +43,10 @@ const resources = {
         },
         cleaning: {
           title: "Pulizia Professionale",
+          detail1: "Pulizia approfondita prima del tuo arrivo",
+          detail2: "Cambio biancheria e asciugamani",
+          detail3: "Pulizia periodica durante la tua assenza",
+          detail4: "Utilizzo prodotti eco-friendly",
           items: [
             "Pulizia completa prima arrivo/partenza",
             "Manutenzione ordinaria",
@@ -52,6 +56,10 @@ const resources = {
         },
         shopping: {
           title: "Spesa e Forniture",
+          detail1: "Spesa di benvenuto pronta al tuo arrivo",
+          detail2: "Acquisto prodotti locali e tipici",
+          detail3: "Consegna in frigo entro 2 ore",
+          detail4: "Gestione liste personalizzate",
           items: [
             "Spesa personalizzata prima arrivo",
             "Forniture di base sempre disponibili",
@@ -61,13 +69,18 @@ const resources = {
         },
         control: {
           title: "Controllo e Sicurezza",
+          detail1: "Ispezioni periodiche programmate",
+          detail2: "Controllo riscaldamento/climatizzazione",
+          detail3: "Verifica stato generale proprietà",
+          detail4: "Report fotografico dettagliato",
           items: [
             "Controllo riscaldamento e climatizzazione",
             "Verifica periodica proprietà",
             "Gestione emergenze 24/7",
             "Coordinate con artigiani locali"
           ]
-        }
+        },
+        show_less: "Meno dettagli"
       },
       about: {
         title: "Perché scegliere Luino Home Care?",
@@ -93,7 +106,11 @@ const resources = {
         email: "Email",
         location: "Sede",
         first_name: "Nome",
+        first_name_placeholder: "Nome",
         last_name: "Cognome",
+        last_name_placeholder: "Cognome",
+        email_placeholder: "Email",
+        phone_placeholder: "Telefono",
         nationality: "Nazionalità",
         nationality_german: "Tedesco",
         nationality_swiss: "Svizzero",
@@ -106,6 +123,8 @@ const resources = {
         message: "Messaggio",
         message_placeholder: "Descrivi le tue esigenze e come possiamo aiutarti...",
         privacy_agreement: "Accetto la privacy policy e i termini di servizio",
+        selected_package: "Pacchetto selezionato",
+        change_package: "Cambia",
         send: "Invia Messaggio",
         sending: "Invio in corso...",
         success_title: "Messaggio Inviato con Successo!",
@@ -250,6 +269,10 @@ const resources = {
         },
         cleaning: {
           title: "Professionelle Reinigung",
+          detail1: "Gründliche Reinigung vor Ihrer Ankunft",
+          detail2: "Wechsel von Bettwäsche und Handtüchern",
+          detail3: "Regelmäßige Reinigung während Ihrer Abwesenheit",
+          detail4: "Verwendung umweltfreundlicher Produkte",
           items: [
             "Vollständige Reinigung vor Ihrer An- und Abreise",
             "Regelmäßige Wartung nach Ihren Wünschen",
@@ -259,6 +282,10 @@ const resources = {
         },
         shopping: {
           title: "Einkäufe und Lieferungen",
+          detail1: "Willkommens-Einkauf bei Ihrer Ankunft bereit",
+          detail2: "Kauf lokaler und typischer Produkte",
+          detail3: "Lieferung in den Kühlschrank innerhalb von 2 Stunden",
+          detail4: "Verwaltung personalisierter Listen",
           items: [
             "Personalisierter Einkauf vor Ihrer Ankunft",
             "Grundversorgung immer verfügbar für Sie",
@@ -268,13 +295,18 @@ const resources = {
         },
         control: {
           title: "Kontrolle und Sicherheit",
+          detail1: "Geplante regelmäßige Inspektionen",
+          detail2: "Heizungs- und Klimakontrolle",
+          detail3: "Überprüfung des allgemeinen Immobilienzustands",
+          detail4: "Detaillierter fotographischer Bericht",
           items: [
             "Heizungs- und Klimakontrolle für Ihr Wohlbefinden",
             "Regelmäßige Immobilienüberprüfung",
             "24/7 Notfallmanagement für Ihre Sicherheit",
             "Koordination mit lokalen Handwerkern"
           ]
-        }
+        },
+        show_less: "Weniger Details"
       },
       about: {
         title: "Warum Sie Luino Home Care Wählen Sollten",
@@ -300,7 +332,11 @@ const resources = {
         email: "E-Mail",
         location: "Standort",
         first_name: "Vorname",
+        first_name_placeholder: "Vorname",
         last_name: "Nachname",
+        last_name_placeholder: "Nachname",
+        email_placeholder: "E-Mail",
+        phone_placeholder: "Telefon",
         nationality: "Ihre Nationalität",
         nationality_german: "Deutsch",
         nationality_swiss: "Schweizer",
@@ -313,6 +349,8 @@ const resources = {
         message: "Ihre Nachricht an uns",
         message_placeholder: "Beschreiben Sie Ihre Anforderungen und wie wir Sie mit Präzision und Sorgfalt unterstützen können...",
         privacy_agreement: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten für die Kontaktaufnahme zu",
+        selected_package: "Ausgewähltes Paket",
+        change_package: "Ändern",
         send: "Nachricht an uns senden",
         sending: "Wird übermittelt...",
         success_title: "Vielen Dank für Ihr Vertrauen!",
