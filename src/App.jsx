@@ -92,23 +92,23 @@ function App() {
                 <span className="text-xl font-bold text-white">Luino Home Care</span>
               </div>
               <p className="text-slate-400 text-sm">
-                Ihr vertrauenswürdiger Partner für Immobilienverwaltung am Lago Maggiore.
+                {t('footer.description')}
               </p>
             </div>
             
             {/* Links */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Rechtliches</h4>
+              <h4 className="text-white font-semibold mb-4">{t('footer.legal_title')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">Datenschutz</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">Impressum</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">AGB</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">{t('footer.privacy')}</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">{t('footer.imprint')}</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-amber-400 transition-colors">{t('footer.terms')}</a></li>
               </ul>
             </div>
             
             {/* Social */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Folgen Sie uns</h4>
+              <h4 className="text-white font-semibold mb-4">{t('footer.social_title')}</h4>
               <div className="flex gap-3">
                 <a href="#" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all">
                   <i className="fab fa-instagram"></i>
@@ -125,10 +125,10 @@ function App() {
           
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm">
-              © 2024 Luino Home Care. Alle Rechte vorbehalten.
+              {t('footer.copyright')}
             </p>
             <p className="text-slate-600 text-xs">
-              Made with precision in Luino 🇮🇹
+              {t('footer.made_in')}
             </p>
           </div>
         </div>

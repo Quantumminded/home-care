@@ -121,6 +121,16 @@ const resources = {
         phone_invalid: "Inserisci un numero di telefono valido",
         message_required: "Il messaggio è obbligatorio"
       },
+      footer: {
+        description: "Il tuo partner affidabile per la gestione della proprietà sul Lago Maggiore.",
+        legal_title: "Legale",
+        privacy: "Privacy Policy",
+        imprint: "Impressum",
+        terms: "Termini e Condizioni",
+        social_title: "Seguici",
+        copyright: "© 2024 Luino Home Care. Tutti i diritti riservati.",
+        made_in: "Fatto con precisione a Luino 🇮🇹"
+      },
       testimonials: {
         title: "Dicono di Noi",
         subtitle: "Clienti tedeschi e svizzeri condividono la loro esperienza con Luino Home Care",
@@ -317,6 +327,16 @@ const resources = {
         phone_required: "Bitte geben Sie Ihre Telefonnummer ein",
         phone_invalid: "Bitte geben Sie eine gültige Telefonnummer ein",
         message_required: "Bitte beschreiben Sie Ihre Anforderungen"
+      },
+      footer: {
+        description: "Ihr vertrauenswürdiger Partner für Immobilienverwaltung am Lago Maggiore.",
+        legal_title: "Rechtliches",
+        privacy: "Datenschutz",
+        imprint: "Impressum",
+        terms: "AGB",
+        social_title: "Folgen Sie uns",
+        copyright: "© 2024 Luino Home Care. Alle Rechte vorbehalten.",
+        made_in: "Mit Präzision gemacht in Luino 🇮🇹"
       },
       testimonials: {
         title: "Das Sagen Unsere Kunden",
