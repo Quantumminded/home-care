@@ -69,7 +69,10 @@ export const Header = () => {
             <LanguageSwitcher isScrolled={isScrolled} />
             
             {/* CTA Button */}
-            <button className="hidden md:block btn-tech-primary text-sm px-6 py-2.5">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hidden md:block btn-tech-primary text-sm px-6 py-2.5 cursor-pointer"
+            >
               {t('header.cta')}
             </button>
 
@@ -103,7 +106,13 @@ export const Header = () => {
               </a>
             ))}
             <div className="px-6 pt-4 border-t border-white/10">
-              <button className="w-full btn-tech-primary text-sm">
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full btn-tech-primary text-sm cursor-pointer"
+              >
                 {t('header.cta')}
               </button>
             </div>
