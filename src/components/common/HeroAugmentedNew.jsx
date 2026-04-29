@@ -81,7 +81,7 @@ export const HeroAugmentedNew = () => {
                 textShadow: '0 4px 20px rgba(0,0,0,0.3)',
               }}
             >
-              {t('hero.title_line1')} in Luino,
+              {t('hero.title_line1')},
             </span>
             <span
               className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight"
